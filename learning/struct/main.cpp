@@ -18,11 +18,7 @@ struct Car {
   }
 
   void print() {
-    cout << this->name << endl;
-    cout << this->color << endl;
-    cout << this->horsepower << endl;
-    cout << this->maxSpeed << endl;
-    cout << this->price << endl;
+    cout << this->name << " " << this->color << " " << this->horsepower << " " << this->maxSpeed << " " << this->price << endl;
   }
 
   void changeSpeed(int newSpeed) {
@@ -38,10 +34,24 @@ struct Car {
 
 int main() {
 
-  Car car;
-  car.insert("Toyota Corolla", "Blue", 90, 100, 100000);
-  car.changeSpeed(180);
-  car.print();
+  Car *cars = new Car[5];
+  Car car1,car2,car3,car4,car5;
+
+  cars[0] = car1;
+  cars[1] = car2;
+  cars[2] = car3;
+  cars[3] = car4;
+  cars[4] = car5;
+
+  cars[0].insert("Toyota Corolla", "Blue", 90, 100, 100000);
+  cars[1].insert("Toyota Camry", "Red", 120, 150, 150000);
+  cars[2].insert("Toyota RAV4", "Green", 110, 140, 120000);
+  cars[3].insert("Toyota Highlander", "Yellow", 130, 160, 180000);
+  cars[4].insert("Toyota Land Cruiser", "Black", 140, 170, 200000);
+
+  for (int i = 0; i < 5; i++) {
+    cars[i].print();
+  }
   
   return 0;
 }
