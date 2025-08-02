@@ -8,22 +8,40 @@ struct Car {
   int horsepower;
   int maxSpeed;
   int price;
+
+  void insert(string name, string color, int horsepower, int maxSpeed, int price) {
+    this->name = name;
+    this->color = color;
+    this->horsepower = horsepower;
+    this->maxSpeed = maxSpeed;
+    this->price = price;
+  }
+
+  void print() {
+    cout << this->name << endl;
+    cout << this->color << endl;
+    cout << this->horsepower << endl;
+    cout << this->maxSpeed << endl;
+    cout << this->price << endl;
+  }
+
+  void changeSpeed(int newSpeed) {
+    if (newSpeed > maxSpeed) {
+      newSpeed = maxSpeed;
+    }
+
+    if (newSpeed < 0) {
+      newSpeed = 0;
+    }
+  }
 };
 
 int main() {
 
   Car car;
-  car.name = "Toyota";
-  car.color = "Red";
-  car.horsepower = 100;
-  car.maxSpeed = 250;
-  car.price = 100000;
-
-  cout << car.name << endl;
-  cout << car.color << endl;
-  cout << car.horsepower << endl;
-  cout << car.maxSpeed << endl;
-  cout << car.price << endl;
-
+  car.insert("Toyota Corolla", "Blue", 90, 100, 100000);
+  car.changeSpeed(180);
+  car.print();
+  
   return 0;
 }
